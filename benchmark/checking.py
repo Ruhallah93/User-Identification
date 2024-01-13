@@ -8,8 +8,7 @@ from benchmark.dataset_information import problems
 models = ['GRU', 'LSTM', 'BiLSTM']
 
 counter = 0
-for problem in ['Power_consumption', 'RSSI', 'User_Identification_From_Walking', 'WISDM', 'PRSA2017',
-                'Motor_Failure_Time', 'DriverIdentification', 'ConfLongDemo_JSI', 'Healthy_Older_People']:
+for problem in ['User_Identification_From_Walking', 'WISDM', 'ConfLongDemo_JSI', 'Healthy_Older_People']:
     dataset = problems[problem]['dataset']
     n_classes = problems[problem]['n_classes']
     features = problems[problem]['features']
