@@ -22,6 +22,9 @@ for dataset in datasets:
         data_ds = data[data.dataset == dataset]
         data_ds = data_ds[data_ds.inner_classifier == classifier]
 
+        if len(data_ds) == 0:
+            continue
+
         sr = problems[dataset]['sample_rate']
         segments_times = data_ds.segments_time.to_numpy()
         decision_times = data_ds.decision_time.to_numpy()
@@ -30,7 +33,7 @@ for dataset in datasets:
         max_id = data_ds.f1_mean.argmax()
         # max_id = data_ds.accuracy_mean.argmax()
         print(dataset, ctitle,
-              int(data_ds.w.iloc[max_id]),
+              data_ds.segments_time.iloc[max_id],
               str(round(data_ds.f1_mean.iloc[max_id] * 100, 2)) +
               " ($\pm$" +
               str(round(data_ds.f1_std.iloc[max_id], 2)) + ")")
@@ -52,4 +55,4 @@ for dataset in datasets:
         if not os.path.exists("images/" + dataset + "/"):
             os.mkdir("images/" + dataset + "/")
         # fig.show()
-        # fig.write_image("images/" + dataset + "/" + ctitle + ".png")
+        fig.write_image("images/" + dataset + "/" + ctitle + ".png")

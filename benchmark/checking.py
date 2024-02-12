@@ -5,10 +5,10 @@ import pandas as pd
 
 from benchmark.dataset_information import problems
 
-models = ['GRU', 'LSTM', 'BiLSTM']
+models = ['GRU', 'LSTM', 'BiLSTM', 'ConvLSTM', 'Fusion']
 
 counter = 0
-for problem in ['User_Identification_From_Walking', 'WISDM', 'ConfLongDemo_JSI', 'Healthy_Older_People']:
+for problem in ['User_Identification_From_Walking', 'ConfLongDemo_JSI', 'Healthy_Older_People']:
     dataset = problems[problem]['dataset']
     n_classes = problems[problem]['n_classes']
     features = problems[problem]['features']
@@ -22,7 +22,7 @@ for problem in ['User_Identification_From_Walking', 'WISDM', 'ConfLongDemo_JSI',
     decision_times = problems[problem]['decision_times']
     segments_times = problems[problem]['segments_times']
 
-    #     log_dir = f"./comparisons/log/{problem}/recurrent/"
+    #     log_dir = f"./comparisons/baselines/{problem}/recurrent/"
     log_dir = ""
 
     for model in models:
