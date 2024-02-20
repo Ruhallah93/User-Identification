@@ -81,10 +81,10 @@ The hyperparameters of this project:
 
 |                                                                                            |                                                                                          |                                                                                              |
 |:------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
-| <img src="benchmark/images/ConfLongDemo_JSI/Fusion-Averagin.png" width="100" height="100"> |  <img src="benchmark/images/ConfLongDemo_JSI/Fusion-MV.png" width="100" height="100">    |      <img src="benchmark/images/ConfLongDemo_JSI/BiLSTM.png" width="100" height="100">       
-|   <img src="benchmark/images/ConfLongDemo_JSI/GRU.png" width="100" height="100">           |     <img src="benchmark/images/ConfLongDemo_JSI/LSTM.png" width="100" height="100">      |     <img src="benchmark/images/ConfLongDemo_JSI/ConvLSTM.png" width="100" height="100">      
-|       <img src="benchmark/images/ConfLongDemo_JSI/CNN.png" width="100" height="100">       |      <img src="benchmark/images/ConfLongDemo_JSI/KNN.png" width="100" height="100">      | <img src="benchmark/images/ConfLongDemo_JSI/Linear Regression.png" width="100" height="100"> 
-|       <img src="benchmark/images/ConfLongDemo_JSI/MLP.png" width="100" height="100">       | <img src="benchmark/images/ConfLongDemo_JSI/Random Forest.png" width="100" height="100"> |       <img src="benchmark/images/ConfLongDemo_JSI/SVM.png" width="100" height="100">         |
+| <img src="benchmark/images/ConfLongDemo_JSI/Fusion-Averagin.png" width="200" height="200"> |  <img src="benchmark/images/ConfLongDemo_JSI/Fusion-MV.png" width="200" height="200">    |      <img src="benchmark/images/ConfLongDemo_JSI/BiLSTM.png" width="200" height="200">       
+|       <img src="benchmark/images/ConfLongDemo_JSI/GRU.png" width="200" height="200">       |     <img src="benchmark/images/ConfLongDemo_JSI/LSTM.png" width="200" height="200">      |     <img src="benchmark/images/ConfLongDemo_JSI/ConvLSTM.png" width="200" height="200">      
+|       <img src="benchmark/images/ConfLongDemo_JSI/CNN.png" width="200" height="200">       |      <img src="benchmark/images/ConfLongDemo_JSI/KNN.png" width="200" height="200">      | <img src="benchmark/images/ConfLongDemo_JSI/Linear Regression.png" width="200" height="200"> 
+|       <img src="benchmark/images/ConfLongDemo_JSI/MLP.png" width="200" height="200">       | <img src="benchmark/images/ConfLongDemo_JSI/Random Forest.png" width="200" height="200"> |       <img src="benchmark/images/ConfLongDemo_JSI/SVM.png" width="200" height="200">         |
 
 #### Hyperparameters Tuning based on HOP Dataset
 
