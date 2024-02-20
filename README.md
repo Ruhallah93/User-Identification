@@ -1,96 +1,108 @@
 # Uncertainty Quantification to Enhance Probabilistic Fusion Based User Identification Using Smartphones
 
-[Rouhollah Ahmadian](https://homes.cs.washington.edu/~royorel/)<sup>1</sup> ,
+[Rouhollah Ahmadian](https://www.linkedin.com/in/ruhollah-ahmadian)<sup>1</sup> ,
 [Mehdi Ghatee](https://aut.ac.ir/cv/2174/MEHDI-GHATEE?slc_lang=en&&cv=2174&mod=scv)<sup>1</sup>,
 [Johan Wahlström](https://emps.exeter.ac.uk/computer-science/staff/cw840)<sup>2</sup><br>
 [Hadi Zare](https://fnst.ut.ac.ir/en/~h.zare)<sup>3</sup><br>
 <sup>1</sup>Amirkabir University of Technology, <sup>2</sup>University of Exeter, <sup>3</sup>University of Tehran
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
-User identification is the process of identifying a person within a group of people. This project compares several machine learning models for user identification based on IMU signals such as accelerometer and gyroscope.
+User identification is the process of identifying a person within a group of people. This project compares several
+machine learning models for user identification based on IMU signals such as accelerometer and gyroscope.
 
 ## Files & Directories
+
 1. BaselineModels.ipynb: It includes the implementation of baseline models for comparison with the proposed model.
-2. BaselineFusion.ipynb: It contains the implementation of models using fusion functions, averaging, and majority voting.
-3. UserIdentificationAnalysis.ipynb: It includes the implementation of the proposed model, which is based on uncertainty quantification and accompanied by various analyses such as SOTA, convergence analysis (D'Alembert's Ratio Test), and similarity visualization.
+2. BaselineFusion.ipynb: It contains the implementation of models using fusion functions, averaging, and majority
+   voting.
+3. UserIdentificationAnalysis.ipynb: It includes the implementation of the proposed model, which is based on uncertainty
+   quantification and accompanied by various analyses such as SOTA, convergence analysis (D'Alembert's Ratio Test), and
+   similarity visualization.
 4. ProposedModel.ipynb : It encompasses the absolute implementation of the proposed model.
 
 ## Evaluation Methodology
-Given the nature of our data being signal-oriented, the technique of $h$-block cross-validation is employed for model selection and hyperparameter tuning. The below figure shows the evaluation methodogy.  Also, each class data is divided separately and then concatenated. So all three parts have all classes. Therefore, the reported results are the average of several expeiments.
+
+Given the nature of our data being signal-oriented, the technique of $h$-block cross-validation is employed for model
+selection and hyperparameter tuning. The below figure shows the evaluation methodogy. Also, each class data is divided
+separately and then concatenated. So all three parts have all classes. Therefore, the reported results are the average
+of several expeiments.
 
 <img src="figs/h-blocks.png" width="300" height="300">
 
-
 ## Datasets
 
-#### UIFW [[1]](#1) 
-Theis dataset is a collection of accelerometer data obtained from an Android smartphone positioned in the chest pocket of 22 participants who were walking in natural environments \cite{casale2012personalization}. This dataset has been specifically curated for activity recognition research, presenting opportunities to tackle the identification and authentication of individuals based on their motion patterns.
+#### UIFW [[1]](#1)
+
+Theis dataset is a collection of accelerometer data obtained from an Android smartphone positioned in the chest pocket
+of 22 participants who were walking in natural environments \cite{casale2012personalization}. This dataset has been
+specifically curated for activity recognition research, presenting opportunities to tackle the identification and
+authentication of individuals based on their motion patterns.
 
 #### CLD [[2]](#2)
-This dataset encompasses localization data recorded from a group of 5 individuals wearing tags on their left ankle, right ankle, belt, and chest \cite{kaluvza2010agent}. It provides valuable information such as three-dimensional tag coordinates (x, y, z), and various activities performed, including walking, falling, lying down, sitting, and standing up.
+
+This dataset encompasses localization data recorded from a group of 5 individuals wearing tags on their left ankle,
+right ankle, belt, and chest \cite{kaluvza2010agent}. It provides valuable information such as three-dimensional tag
+coordinates (x, y, z), and various activities performed, including walking, falling, lying down, sitting, and standing
+up.
 
 #### HOP [[3]](#3)
-With a focus on 12 healthy older adults aged between 66 and 86, this dataset captures motion data using a wearable sensor placed at the sternum level \cite{torres2013sensor}.
-The dataset is sparse and noisy due to the use of a passive sensor. The collected data includes acceleration readings in three axes and covers activities such as sitting on a bed, sitting on a chair, lying on a bed, and ambulating (standing and walking). The data was acquired in clinical room settings with the aid of RFID reader antennas.
+
+With a focus on 12 healthy older adults aged between 66 and 86, this dataset captures motion data using a wearable
+sensor placed at the sternum level \cite{torres2013sensor}.
+The dataset is sparse and noisy due to the use of a passive sensor. The collected data includes acceleration readings in
+three axes and covers activities such as sitting on a bed, sitting on a chair, lying on a bed, and ambulating (standing
+and walking). The data was acquired in clinical room settings with the aid of RFID reader antennas.
 
 #### Dataset \#2 (DB2) [[4]](#4)
-Gait data from 20 subjects segmented with a sliding window approach (window length: 128, no overlap). Dataset split into 70\% training and 30\% testing sets.
+
+Gait data from 20 subjects segmented with a sliding window approach (window length: 128, no overlap). Dataset split into
+70\% training and 30\% testing sets.
 
 #### UCI-HAR (HAR): [[5]](#5)
-Accelerometer and gyroscope data from 30 volunteers (19-48 years) preprocessed with low-pass filters. Segmented into fixed-width sliding windows (2.56s, 50\% overlap). Dataset divided into 70\% training and 30\% testing sets.
+
+Accelerometer and gyroscope data from 30 volunteers (19-48 years) preprocessed with low-pass filters. Segmented into
+fixed-width sliding windows (2.56s, 50\% overlap). Dataset divided into 70\% training and 30\% testing sets.
 
 ## Hyperparameters
+
 It is important to optimize parameters to have a fair comparison between the proposed model and baseline models.
 We use grid search to find the best model configurations.
 The hyperparameters of this project:
+
 * `w`: it refers to the window length used in segmentation.
 * `r`: it is the window overlap. As it take a lot of computing though, `r` is fixed at 75\% for all experiments.
-* `s`: it only relates to recurrent models. It shows the input sequence length, while `w` is the hidden unit length for each subsequence.
+* `s`: it only relates to recurrent models. It shows the input sequence length, while `w` is the hidden unit length for
+  each subsequence.
 
 #### Hyperparameters Tuning based on CLD Dataset
-<img src="benchmark/images/ConfLongDemo_JSI/Fusion-Averagin.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/Fusion-MV.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/BiLSTM.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/GRU.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/LSTM.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/ConvLSTM.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/CNN.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/KNN.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/Linear Regression.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/MLP.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/Random Forest.png" width="100" height="100">
-<img src="benchmark/images/ConfLongDemo_JSI/SVM.png" width="100" height="100">
 
+|                                                                                            |                                                                                          |                                                                                              |
+|:------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
+| <img src="benchmark/images/ConfLongDemo_JSI/Fusion-Averagin.png" width="100" height="100"> |  <img src="benchmark/images/ConfLongDemo_JSI/Fusion-MV.png" width="100" height="100">    |      <img src="benchmark/images/ConfLongDemo_JSI/BiLSTM.png" width="100" height="100">       
+|   <img src="benchmark/images/ConfLongDemo_JSI/GRU.png" width="100" height="100">           |     <img src="benchmark/images/ConfLongDemo_JSI/LSTM.png" width="100" height="100">      |     <img src="benchmark/images/ConfLongDemo_JSI/ConvLSTM.png" width="100" height="100">      
+|       <img src="benchmark/images/ConfLongDemo_JSI/CNN.png" width="100" height="100">       |      <img src="benchmark/images/ConfLongDemo_JSI/KNN.png" width="100" height="100">      | <img src="benchmark/images/ConfLongDemo_JSI/Linear Regression.png" width="100" height="100"> 
+|       <img src="benchmark/images/ConfLongDemo_JSI/MLP.png" width="100" height="100">       | <img src="benchmark/images/ConfLongDemo_JSI/Random Forest.png" width="100" height="100"> |       <img src="benchmark/images/ConfLongDemo_JSI/SVM.png" width="100" height="100">         |
 
 #### Hyperparameters Tuning based on HOP Dataset
-<img src="benchmark/images/Healthy_Older_People/Fusion-Averagin.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/Fusion-MV.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/BiLSTM.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/GRU.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/LSTM.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/ConvLSTM.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/CNN.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/KNN.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/Linear Regression.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/MLP.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/Random Forest.png" width="100" height="100">
-<img src="benchmark/images/Healthy_Older_People/SVM.png" width="100" height="100">
+
+|                                                                                                |                                                                                                  |                                                                                                  |
+|:----------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+| <img src="benchmark/images/Healthy_Older_People/Fusion-Averagin.png" width="100" height="100"> |     <img src="benchmark/images/Healthy_Older_People/Fusion-MV.png" width="100" height="100">     |      <img src="benchmark/images/Healthy_Older_People/BiLSTM.png" width="100" height="100">       
+|       <img src="benchmark/images/Healthy_Older_People/GRU.png" width="100" height="100">       |       <img src="benchmark/images/Healthy_Older_People/LSTM.png" width="100" height="100">        |     <img src="benchmark/images/Healthy_Older_People/ConvLSTM.png" width="100" height="100">      
+|       <img src="benchmark/images/Healthy_Older_People/CNN.png" width="100" height="100">       |        <img src="benchmark/images/Healthy_Older_People/KNN.png" width="100" height="100">        | <img src="benchmark/images/Healthy_Older_People/Linear Regression.png" width="100" height="100"> 
+|  <img src="benchmark/images/Healthy_Older_People/MLP.png" width="100" height="100">            | <img src="benchmark/images/Healthy_Older_People/Random Forest.png" width="100" height="100">     |      <img src="benchmark/images/Healthy_Older_People/SVM.png" width="100" height="100">          |
 
 #### Hyperparameters Tuning based on UIFW Dataset
-<img src="benchmark/images/User_Identification_From_Walking/Fusion-Averagin.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/Fusion-MV.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/BiLSTM.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/GRU.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/LSTM.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/ConvLSTM.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/CNN.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/KNN.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/Linear Regression.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/MLP.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/Random Forest.png" width="100" height="100">
-<img src="benchmark/images/User_Identification_From_Walking/SVM.png" width="100" height="100">
+
+|                                                                                                            |                                                                                                              |                                                                                                  |
+|:----------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+| <img src="benchmark/images/User_Identification_From_Walking/Fusion-Averagin.png" width="100" height="100"> |     <img src="benchmark/images/User_Identification_From_Walking/Fusion-MV.png" width="100" height="100">     |      <img src="benchmark/images/User_Identification_From_Walking/BiLSTM.png" width="100" height="100">       
+|       <img src="benchmark/images/User_Identification_From_Walking/GRU.png" width="100" height="100">       |       <img src="benchmark/images/User_Identification_From_Walking/LSTM.png" width="100" height="100">        |     <img src="benchmark/images/User_Identification_From_Walking/ConvLSTM.png" width="100" height="100">      
+|       <img src="benchmark/images/User_Identification_From_Walking/CNN.png" width="100" height="100">       |        <img src="benchmark/images/User_Identification_From_Walking/KNN.png" width="100" height="100">        | <img src="benchmark/images/User_Identification_From_Walking/Linear Regression.png" width="100" height="100"> 
+|  <img src="benchmark/images/User_Identification_From_Walking/MLP.png" width="100" height="100">            | <img src="benchmark/images/User_Identification_From_Walking/Random Forest.png" width="100" height="100">     |       <img src="benchmark/images/User_Identification_From_Walking/SVM.png" width="100" height="100">       |
 
 ## Comparison of the proposed model with the baseline models in terms of F1-Score
 
@@ -136,13 +148,16 @@ The hyperparameters of this project:
 |  UIFW   |    Fusion (Averaging)    | 00:00:03 | 00:00:22 | **85.74 (± 0.09)** |
 |  UIFW   |      **Our Fusion**      | 00:00:03 | 00:00:22 | **88.10 (± 0.09)** |
 
-
 ## Benchmark
 
-A comparison was made between this study and previous works [[4]](#4) and [[5]](#5) using the DB2 and HAR datasets, which were also used in those studies.
+A comparison was made between this study and previous works [[4]](#4) and [[5]](#5) using the DB2 and HAR datasets,
+which were also used in those studies.
 To ensure a fair evaluation, the same dataset configurations were followed as in the prior work.
-Both datasets were pre-segmented into standardized train/test splits, and 20% of the training data was set aside for validation.
-The following hyperparameters were used: window size (`w`) of 32 seconds, receptive field size (`r`) of 24 seconds, stride (`s`) of 128 seconds, learning rate (`lr`) of 0.0001, batch size of 32, 50 epochs, and a maximum number of iterations (`M`) set to 200.
+Both datasets were pre-segmented into standardized train/test splits, and 20% of the training data was set aside for
+validation.
+The following hyperparameters were used: window size (`w`) of 32 seconds, receptive field size (`r`) of 24 seconds,
+stride (`s`) of 128 seconds, learning rate (`lr`) of 0.0001, batch size of 32, 50 epochs, and a maximum number of
+iterations (`M`) set to 200.
 
 | Dataset |      Ref.      |  MSE   | F1-Score  |  Recall   | Precision | Accuracy  |
 |:-------:|:--------------:|:------:|:---------:|:---------:|:---------:|:---------:|
@@ -163,7 +178,9 @@ https://archive.ics.uci.edu/ml/datasets/Localization+Data+for+Person+Activity
 https://archive.ics.uci.edu/ml/datasets/Activity+recognition+with+healthy+older+people+using+a+batteryless+wearable+sensor
 
 <a id="1">[4]</a>
-Zou, Qin, et al. "Deep learning-based gait recognition using smartphones in the wild." IEEE Transactions on Information Forensics and Security 15 (2020): 3197-3212.
+Zou, Qin, et al. "Deep learning-based gait recognition using smartphones in the wild." IEEE Transactions on Information
+Forensics and Security 15 (2020): 3197-3212.
 
 <a id="1">[5]</a>
-Luo, Fei, et al. "Activity-based person identification using multimodal wearable sensor data." IEEE Internet of Things Journal 10.2 (2022): 1711-1723.
+Luo, Fei, et al. "Activity-based person identification using multimodal wearable sensor data." IEEE Internet of Things
+Journal 10.2 (2022): 1711-1723.
