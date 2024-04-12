@@ -26,8 +26,8 @@ for dataset in datasets:
         sr = problems[dataset]['sample_rate']
         segments_times = data_ds.segments_time.to_numpy()
         decision_times = data_ds.decision_time.to_numpy()
-        data_ds["w"] = np.array([string_seconds(segments_times[j]) * sr for j in range(len(segments_times))])
-        data_ds["s"] = np.array([string_seconds(decision_times[j]) * sr for j in range(len(decision_times))])
+        data_ds["w"] = np.array([string_seconds(segments_times[j]) for j in range(len(segments_times))])
+        data_ds["s"] = np.array([string_seconds(decision_times[j]) for j in range(len(decision_times))])
 
         if data_ds.shape[0] == 0:
             continue
