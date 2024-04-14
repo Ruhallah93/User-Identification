@@ -73,7 +73,7 @@ We use grid search to find the best model configurations.
 The hyperparameters of this project:
 
 * `w`: it refers to the window length used in segmentation.
-* `r`: it is the window overlap. As it take a lot of computing though, `r` is fixed at 75\% for all experiments.
+* `r`: it is the window overlap. `r` is fixed at 75\% for all experiments.
 * `s`: it only relates to recurrent models. It shows the input sequence length, while `w` is the hidden unit length for
   each subsequence.
 
