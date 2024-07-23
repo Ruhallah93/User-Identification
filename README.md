@@ -6,6 +6,17 @@
 [Hadi Zare](https://fnst.ut.ac.ir/en/~h.zare)<sup>3</sup><br>
 <sup>1</sup>Amirkabir University of Technology, <sup>2</sup>University of Exeter, <sup>3</sup>University of Tehran
 
+*If you use our method, please cite it by*:
+```
+@article{ahmadian2024uncertainty,
+  title={Uncertainty Quantification to Enhance Probabilistic Fusion Based User Identification Using Smartphones},
+  author={Ahmadian, Rouhollah and Ghatee, Mehdi and Wahlstr{\"o}m, Johan and Zare, Hadi},
+  journal={IEEE Internet of Things Journal},
+  year={2024},
+  publisher={IEEE}
+}
+```
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
