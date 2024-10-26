@@ -8,13 +8,12 @@
 
 *If you use our method, please cite it by*:
 ```
-@inproceedings{moeini2024calibrated,
-  title={Calibrated SVM for Probabilistic Classification of In-Vehicle Voices into Vehicle Commands via Voice-to-Text LLM Transformation},
-  author={Moeini, Mobina and Ahmadian, Rouhollah and Ghatee, Mehdi},
-  booktitle={2024 8th International Conference on Smart Cities, Internet of Things and Applications (SCIoT)},
-  pages={180--188},
+@article{ahmadian2024uncertainty,
+  title={Uncertainty Quantification to Enhance Probabilistic Fusion Based User Identification Using Smartphones},
+  author={Ahmadian, Rouhollah and Ghatee, Mehdi and Wahlstr{\"o}m, Johan and Zare, Hadi},
+  journal={IEEE Internet of Things Journal},
   year={2024},
-  organization={IEEE}
+  publisher={IEEE}
 }
 ```
 
